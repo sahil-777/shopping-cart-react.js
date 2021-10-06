@@ -3,21 +3,36 @@ import React, { Component } from "react";
 class Counter extends React.Component {
   state = {
     count: 0,
-    imageUrl: "https://picsum.photos/200",
   };
+
   styles = {
     fontSize: 22,
-    fontWeight: "bold",
   };
+
+  handleIncrement = () => {
+    console.log("Clicked!", this.state);
+  };
+
   render() {
     return (
       <React.Fragment>
-        <span style={this.styles} className="badge bg-primary m-2">
+        <span style={this.styles} className={this.getBadgeClasses()}>
           {this.formatCount()}
         </span>
-        <button className="btn btn-secondary m-2">Increment</button>
+        <button
+          onClick={this.handleIncrement}
+          className="btn btn-secondary m-2"
+        >
+          Increment
+        </button>
       </React.Fragment>
     );
+  }
+
+  getBadgeClasses() {
+    let classes = "badge m-2 bg-";
+    classes += this.state.count === 0 ? "warning" : "primary";
+    return classes;
   }
 
   formatCount() {
