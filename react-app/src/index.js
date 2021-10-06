@@ -5,9 +5,9 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 
 import 'bootstrap/dist/css/bootstrap.css';
-import Counter from './components/counter';
+import Counters from './components/counters';
 
-ReactDOM.render( < Counter / > ,
+ReactDOM.render( < Counters / > ,
     document.getElementById('root')
 );
 
